@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "vehicles#index"
+  devise_for :users
+  get 'users/dashboard', to: "users#dashboard"
+
   resources :vehicles do
     resources :bookings, except: :destroy
   end
