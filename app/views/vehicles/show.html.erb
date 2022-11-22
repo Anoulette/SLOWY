@@ -1,14 +1,16 @@
-<%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-
 <div class="card-vehicule">
-  <h2><%= @vehicle.name %></h2>
+    <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
 
-  <p>Type de véhicule : <%= @vehicle.vehicle_type %></p>
-  <p>Prix du véhicule : <%= @vehicle.price %>€</p>
-  <p>Description : <%= @vehicle.details %></p>
+    <div class="card-vehicule-description">
+      <h2><%= @vehicle.name %></h2>
 
-  <div class="liens">
-    <%= link_to "Retour à la liste des véhicules", vehicles_path %>
-    <%= link_to "Réserver ce véhicule", vehicles_path %>
-  </div>
+      <p>Type de véhicule : <%= @vehicle.vehicle_type %></p>
+      <p>Prix du véhicule : <%= @vehicle.price %>€</p>
+      <p>Description : <%= @vehicle.details %></p>
+
+      <div class="liens">
+        <%= link_to "Retour à la liste des véhicules", vehicles_path %>
+        <%# <%= link_to "Réserver ce véhicule", new_vehicle_booking_path %> %>
+      </div>
+    </div>
 </div>
