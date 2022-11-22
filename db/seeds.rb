@@ -1,3 +1,3 @@
-v1 = Vehicle.create!(price: 50, details: "très beau vélo de compétition à louer", name: "Vélo ancien")
-v2 = Vehicle.create!(price: 25, details: "très belle trottinette", name: "Jolie trottinette")
-v3 = Vehicle.create!(price: 30, details: "overboard tout neuf à louer sur Lyon", name: "Overboard")
+v1 = Vehicle.create(vehicle_type: "vélo", price: 30, details: "Superbe vélo à louer au centre de Lyon", name: "Vélo de compétition")
+v2 = Vehicle.create(vehicle_type: "trottinette", price: 20, details: "Superbe trottinette à louer au centre de Lyon", name: "Trott' de compétition")
+v3 = Vehicle.create(vehicle_type: "overboard", price: 40, details: "Superbe overboard à louer au centre de Lyon", name: "Overboard de compétition")

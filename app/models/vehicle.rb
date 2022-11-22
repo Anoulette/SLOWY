@@ -4,6 +4,6 @@ class Vehicle < ApplicationRecord
 
   validates :name, presence: true
   validates :details, presence: true, length: { minimum: 20 }
-  # validates :type, presence: true, inclusion: { in: ["vélo", "vélo électrique", "vélo cargo", "overboard", "trottinette", "trottinette électrique", "gyroroue"] }
+  validates :vehicle_type, presence: true, inclusion: { in: ["vélo", "vélo électrique", "vélo cargo", "overboard", "trottinette", "trottinette électrique", "gyroroue"] }
   validates :price, presence: true, numericality: true
 end
