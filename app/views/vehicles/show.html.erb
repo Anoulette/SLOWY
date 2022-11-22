@@ -1,4 +1,6 @@
-<h2> Détails d'un véhicule</h2>
+<div class="card-one-vehicule">
+  <h2><%= @vehicle.name %></h2>
+
 
 <p><%= @vehicle.name %></p>
 <p><%= @vehicle.vehicle_type %></p>
@@ -6,4 +8,8 @@
 <p><%= @vehicle.details %></p>
 <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
 
-<%= link_to "Retour à la liste des véhicules", vehicles_path %>
+
+  <%= link_to "Retour à la liste des véhicules", vehicles_path %>
+
+
+</div>
