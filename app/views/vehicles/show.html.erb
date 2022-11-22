@@ -1,10 +1,13 @@
 <div class="card-one-vehicule">
   <h2><%= @vehicle.name %></h2>
 
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <p>Type de véhicule : <%= @vehicle.vehicle_type %></p>
-    <p>Prix : <%= @vehicle.price %>€</p>
-    <p>Description : <%= @vehicle.details %></p>
+
+<p><%= @vehicle.name %></p>
+<p><%= @vehicle.vehicle_type %></p>
+<p><%= @vehicle.price %></p>
+<p><%= @vehicle.details %></p>
+<%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+
 
   <%= link_to "Retour à la liste des véhicules", vehicles_path %>
 
