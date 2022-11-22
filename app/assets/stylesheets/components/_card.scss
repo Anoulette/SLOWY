@@ -24,13 +24,13 @@
       object-fit: cover;
     }
   }
-  
+
   h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
-  
+
   p {
     font-size: 12px;
     opacity: .7;
@@ -54,11 +54,18 @@
       height: 100%;
     }
   }
-  
+
   .card-vehicle-infos {
     padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+  }
+
+  .card-trip-infos .card-trip-user {
+    position: absolute;
+    right: 16px;
+    top: -20px;
+    width: 40px;
   }
 }
