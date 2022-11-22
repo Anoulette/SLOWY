@@ -1,69 +1,64 @@
-.card-trip {
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    width: 300px;
-    margin: 20px;
-  }
+.card-vehicle {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 300px;
+  margin: 20px;
+  position: relative;
 
-  .card-trip > img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-  }
+  .card-vehicle-picture {
+    position: relative;
 
-  .card-trip h2 {
+    img:not(.card-vehicle-user) {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .card-vehicle-user {
+      position: absolute;
+      right: 16px;
+      bottom: -20px;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+  
+  h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
   }
-
-  .card-trip p {
+  
+  p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
   }
 
+  a {
+    color: $coffee;
+    transition: all .15s ease-in-out;
 
-  .card-trip .card-trip-infos {
+    &:hover {
+      color: $flame;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .card-vehicle-infos {
     padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    position: relative;
   }
-
-  .card-trip-infos .card-trip-user {
-    position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
-  }
-
-li{
-    list-style-type: none;
-}
-
-li a{
-    text-decoration: none;
-}
-
-.card-vehicule {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 50%;
-  height: 300px;
-  margin: 20px;
-  padding: 20px;
-}
-
-.card-vehicule h2 {
-  margin-bottom: 40px;
-}
-
-.liens {
-  display: flex;
-  flex-direction: column;
-  margin: 40px 20px 40px 0;
 }
