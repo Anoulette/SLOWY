@@ -4,11 +4,11 @@
     <% @vehicles.each do |vehicle| %>
     <li>
     <div class="card-trip">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" />
       <div class="card-trip-infos">
         <div>
-          <h2> <%= link_to vehicle.name, vehicle_path(vehicle) %></h2>
-          <p> <%= vehicle.vehicle_type %></p>
+          <h2><%= link_to vehicle.name, vehicle_path(vehicle) %></h2>
+          <p><%= vehicle.vehicle_type %></p>
         </div>
           <h2 class="card-trip-pricing"><%= vehicle.price %>€</h2>
           <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
