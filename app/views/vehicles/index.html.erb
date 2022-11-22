@@ -1,0 +1,9 @@
+<h1>Vehicles</h1>
+<ol>
+  <% @vehicles.each do |vehicle| %>
+    <li>
+      <%= link_to vehicle.name, vehicle_path(vehicle) %>
+      <%= vehicle.price %>€
+    </li>
+  <% end %>
+</ol>
