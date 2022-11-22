@@ -1,18 +1,23 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @vehicles = Vehicle.all
   end
 
-  # def new
-  #   @vehicle = Vehicle.new
-  # end
+  def new
+    @vehicle = Vehicle.new
+  end
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.save
-    redirect_to vehicle_path(@vehicle)
+    @vehicle.user = current_user
+    if @vehicle.save!
+      redirect_to vehicles_path(@vehicle)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show; end

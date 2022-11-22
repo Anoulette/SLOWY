@@ -1,9 +1,20 @@
-<h1>Vehicles</h1>
-<ol>
-  <% @vehicles.each do |vehicle| %>
+<div class="container">
+<p id="vehicle-title">Choose a vehicle</p>
+  <ul class="d-flex flex-wrap">
+    <% @vehicles.each do |vehicle| %>
     <li>
-      <%= link_to vehicle.name, vehicle_path(vehicle) %>
-      <%= vehicle.price %>€
-    </li>
-  <% end %>
-</ol>
+    <div class="card-trip">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos">
+        <div>
+          <h2> <%= link_to vehicle.name, vehicle_path(vehicle) %></h2>
+          <p> <%= vehicle.vehicle_type %></p>
+        </div>
+          <h2 class="card-trip-pricing"><%= vehicle.price %>€</h2>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
