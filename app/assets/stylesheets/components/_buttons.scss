@@ -1,0 +1,33 @@
+.button {
+  min-height: 48px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 16px!important;
+  padding-right: 16px!important;  
+  gap: 8px;
+  background-size: 0% 100%;
+  background-image: linear-gradient($coffee 0 0);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .15s ease-in-out;
+  font-weight: bold;
+  letter-spacing: 0.15;
+
+  &:hover {
+    background-size: 100% 100%;
+  }
+
+  &.primary {
+    background-color: $flame;
+    background-image: linear-gradient($coffee 0 0);
+    color: white;
+  }
+
+  &.secundary {
+    border: solid 1px $flame;
+    background-image: linear-gradient($crayola 0 0);
+    color: $flame;
+  }
+}
