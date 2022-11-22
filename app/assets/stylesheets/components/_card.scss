@@ -47,3 +47,24 @@ li{
 li a{
     text-decoration: none;
 }
+
+
+.card-vehicule {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 50%;
+  height: 300px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.card-vehicule h2 {
+  margin-bottom: 40px;
+}
+
+.liens {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 20px 40px 0;
+}
