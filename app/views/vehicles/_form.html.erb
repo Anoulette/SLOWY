@@ -1,6 +1,6 @@
 <%= simple_form_for(@vehicle) do |f| %>
   <%= f.input :name %>
-  <%= f.input :vehicle_type %>
+  <%= f.select :vehicle_type, [['Bike','bike'],['E-bike','e-bike'],['Cargo bike','cargo bike'],['Overboard','overboard'],['Scooter','scooter'],['E-scooter','e-scooter'],['E-unicycle','e-unicycle']] %>
   <%= f.input :details %>
   <%= f.input :price %>
   <%= f.input :street_number %>
