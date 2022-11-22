@@ -47,3 +47,16 @@ li{
 li a{
     text-decoration: none;
 }
+
+.card-one-vehicule {
+  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-one-vehicule > img {
+  height: 200px;
+  width: 50%;
+  object-fit: cover;
+  margin: 20px 20px 20px 0;
+}

@@ -1,8 +1,12 @@
-<h2> Détails d'un véhicule</h2>
+<div class="card-one-vehicule">
+  <h2><%= @vehicle.name %></h2>
 
-<p><%= @vehicle.name %></p>
-<p><%= @vehicle.vehicle_type %></p>
-<p><%= @vehicle.price %></p>
-<p><%= @vehicle.details %></p>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <p>Type de véhicule : <%= @vehicle.vehicle_type %></p>
+    <p>Prix : <%= @vehicle.price %>€</p>
+    <p>Description : <%= @vehicle.details %></p>
 
-<%= link_to "Retour à la liste des véhicules", vehicles_path %>
+  <%= link_to "Retour à la liste des véhicules", vehicles_path %>
+
+
+</div>
