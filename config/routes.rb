@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "vehicles#index"
   devise_for :users
-  get 'users/dashboard', to: "users#dashboard"
+  get '/dashboard', to: "bookings#dashboard"
 
   resources :vehicles do
     resources :bookings, except: :destroy
