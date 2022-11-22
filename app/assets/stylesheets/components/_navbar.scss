@@ -10,3 +10,12 @@
 .navbar-lewagon .navbar-brand img {
   width: 96px;
 }
+
+.navbar-nav {
+  align-items: center;
+  gap: 8px;
+
+  .add-vehicle {
+    margin-right: 8px;
+  }
+}
