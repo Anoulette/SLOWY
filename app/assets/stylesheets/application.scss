@@ -10,8 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "components/card";
+@import "components/links";
+@import "components/form";
 @import "pages/index";
 
 a {
   text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
 }
