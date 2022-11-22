@@ -48,15 +48,22 @@ li a{
     text-decoration: none;
 }
 
-.card-one-vehicule {
+.card-vehicule {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 50%;
+  height: 300px;
   margin: 20px;
   padding: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-one-vehicule > img {
-  height: 200px;
-  width: 50%;
-  object-fit: cover;
-  margin: 20px 20px 20px 0;
+.card-vehicule h2 {
+  margin-bottom: 40px;
+}
+
+.liens {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 20px 40px 0;
 }
