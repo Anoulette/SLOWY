@@ -1,6 +1,5 @@
 Vehicle.destroy_all
 User.destroy_all
-
 u1 = User.create!(first_name: "Gaëlle", last_name: "Ozanon", email: "gaelle@toto.com", password: "123456")
 u2 = User.create!(first_name: "Anoula", last_name: "Croville", email: "anoula@toto.com", password: "123456")
 u3 = User.create!(first_name: "Emmanuel", last_name: "Landron", email: "emmanuel@toto.com", password: "123456")
