@@ -25,7 +25,7 @@
     <% @vehicles.each do |booking| %>
     <li>
     <div class="card-trip">
-    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" />
+    <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>/>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to booking.name, vehicle_path(booking) %></h2>
