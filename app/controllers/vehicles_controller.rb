@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
     @vehicles = Vehicle.all
@@ -24,17 +24,16 @@ class VehiclesController < ApplicationController
     @booking = Booking.new
   end
 
-  # def edit; end
+  def edit; end
 
   def update
-
-    @vehicle.update(params[:vehicle])
+    @vehicle.update(vehicle_params)
     redirect_to vehicle_path(@vehicle)
   end
 
   def destroy
     @vehicle.destroy
-    redirect_to vehicles_path
+    redirect_to dashboard_path
   end
 
   private
