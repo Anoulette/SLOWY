@@ -1,10 +1,11 @@
 <div class="card-vehicle">
   <div class="card-vehicle-picture">
     <% if vehicle.photo.attached? %>
-      <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag vehicle.photo.key, height: 350, width: 400, crop: :fill %>
     <% else %>
       <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
     <% end %>
+    <span class="type-tag"><%= vehicle.vehicle_type %></span>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-vehicle-user avatar-bordered" />
   </div>
   <div class="card-vehicle-infos">
@@ -12,7 +13,6 @@
       <h3>
         <%= link_to vehicle.name, vehicle_path(vehicle) %>
       </h3>
-      <p><%= vehicle.vehicle_type %></p>
     </div>
     <h3 class="card-vehicle-pricing"><%= vehicle.price %>€</h3>
   </div>
