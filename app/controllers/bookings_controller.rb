@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, except: [:create]
+
   def index
     @bookings = Booking.where(user_id: current_user.id)
   end
@@ -25,22 +27,22 @@ class BookingsController < ApplicationController
     end
   end
 
-#   def edit
-#     @user = User.find(params[:user_id])
-#     @booking = Booking.new
-#   end
+  def edit
+    @booking = Booking.new
+  end
 
   def update
     set_booking
-    @booking.accepted = true
+    @booking.update(bookings_params)
+    # @booking.accepted = true
     @booking.save!
-    redirect_to booking_path(@booking)
+    redirect_to dashboard_path
   end
 
   def destroy
     set_booking
-    @booking.destroy
-    redirect_to bookings_path
+    @bookings.destroy
+    redirect_to dashboard_path
   end
 
   def dashboard

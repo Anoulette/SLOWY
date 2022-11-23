@@ -1,6 +1,7 @@
 <div class="vehicle">
+    <% if @vehicle.photo.key %>
     <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-
+    <% end %>
     <div class="vehicle-description">
       <h2><%= @vehicle.name %></h2>
 
