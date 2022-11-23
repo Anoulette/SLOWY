@@ -79,3 +79,5 @@ end
 
 gem "devise"
 gem "cloudinary"
+
+gem "awesome_print", "~> 1.9"
