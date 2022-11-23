@@ -6,7 +6,11 @@
       <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
     <% end %>
     <span class="type-tag"><%= vehicle.vehicle_type %></span>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-vehicle-user avatar-bordered" />
+    <% if vehicle.user.avatar.attached? %>
+      <%= cl_image_tag vehicle.user.avatar.key, class: "card-vehicle-user avatar-bordered" %>
+    <% else %>
+      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar-bordered" %>
+    <% end %>
   </div>
   <div class="card-vehicle-infos">
     <div>
