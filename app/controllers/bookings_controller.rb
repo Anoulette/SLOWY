@@ -19,9 +19,9 @@ class BookingsController < ApplicationController
     @booking.vehicle = @vehicle
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
-      render :new, status: :unprocessable_entity
+      render "vehicles/show", status: :unprocessable_entity
     end
   end
 
