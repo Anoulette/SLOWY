@@ -1,12 +1,14 @@
 /* VEHICLE CARD */
 
 .card-vehicle {
-  overflow: hidden;
   background: white;
   box-shadow: $card-shadow;
-  width: 300px;
-  margin: 20px;
+  width: 100%;
   position: relative;
+
+  &:hover {
+    box-shadow: $card-shadow-focus;
+  }
 
   .card-vehicle-picture {
     position: relative;
@@ -25,11 +27,30 @@
       height: 40px;
       object-fit: cover;
     }
+    .type-tag {
+      position: absolute;
+      top: 12px;
+      left: -6px;
+      display: inline-block;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background-color: $coffee;
+      color: white;
+      border-radius: 4px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 100%;
+        border-left: 4px solid transparent;
+        border-top: 4px solid black;
+        opacity: .5;
+      }
+    }
   }
 
   h3 {
-    font-size: 16px;
-    font-weight: bold;
     margin: 0;
   }
 
@@ -42,6 +63,7 @@
   a {
     color: $coffee;
     transition: all .15s ease-in-out;
+    text-decoration: none;
 
     &:hover {
       color: $flame;
@@ -62,6 +84,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    background-color: $lavender;
   }
 
   .card-trip-infos .card-trip-user {
@@ -81,7 +104,7 @@
   width: 100%;
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   
   .card-booking-image {
     width: 50%;
@@ -96,6 +119,18 @@
   
   .card-booking-infos {
     width: 50%;
+    padding: 16px;
     flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: $crayola;
+
+    .card-booking-infos-buttons {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
   }
 }

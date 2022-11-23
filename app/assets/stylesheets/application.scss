@@ -15,14 +15,5 @@
 @import "components/form";
 @import "pages/index";
 
-a {
-  text-decoration: none;
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
+// General styling
+@import "config/main";
