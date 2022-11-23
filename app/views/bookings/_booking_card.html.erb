@@ -11,8 +11,8 @@
       <h2><%= booking.vehicle.name %></h2>
       <p><%= booking.date %></p>
     </div>
-    <%= link_to "Edit", edit_dashboard_path(booking), class: "button primary"%>
-    <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button primary" %>
+    <%# <%= link_to "Edit", edit_vehicle_booking_path, class: "button primary"%> %>
+    <%#= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button primary" %>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
 </div>
