@@ -1,24 +1,12 @@
 <div class="container">
   <p id="booking-title">My bookings</p>
-  <ul class="d-flex flex-wrap">
+  <ul class="grid">
     <% @bookings.each do |booking| %>
-      <li>
-        <div class="card-booking">
-             <%= cl_image_tag booking.vehicle.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= booking.vehicle.name %></h2>
-              <p><%= booking.date %></p>
-            </div>
-            <%# <% if booking.accepted %>
-              <!-- <h2 class="card-trip-pricing">Réservation acceptée</h2> -->
-            <%# <% end %>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-          </div>
-        </div>
+      <li class="grid__item one-half small-one-whole">
+        <%= render "booking_card", booking: booking %>
       </li>
     <% end %>
-  </ul>
+  </ul>S
 
   <p id="vehicle-title">My vehicles</p>
   <ul class="d-flex flex-wrap">
