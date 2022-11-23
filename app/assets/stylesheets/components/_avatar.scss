@@ -1,6 +1,10 @@
 .avatar {
-  width: 40px;
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
   border-radius: 50%;
+  border: solid 1px $emerald;
+  background-color: white;
 }
 .avatar-large {
   width: 56px;
