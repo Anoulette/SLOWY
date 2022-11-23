@@ -12,16 +12,13 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item add-vehicle">
           <%= link_to new_vehicle_path, class: "nav-link button secundary" do %>
-            Add a (slow) vehicle on Slowy
+            Add a (slow) vehicle
             <i class="fa-solid fa-bicycle"></i>
           <% end %>
         </li>
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <span class="nav-link">Welcome <%= current_user.first_name %>!</span>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.avatar.attached? %>
@@ -31,6 +28,12 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
+              <% if current_user.bookings.count > 0 %>
+                <%= link_to "My bookings", dashboard_path(anchor: "booking-title"), class: "dropdown-item" %>
+              <% end %>
+              <% if current_user.vehicles.count > 0 %>
+                <%= link_to "My vehicles", dashboard_path(anchor: "vehicle-title"), class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Account details", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>

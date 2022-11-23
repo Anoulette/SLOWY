@@ -6,18 +6,16 @@
       <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
     <% end %>
     <span class="type-tag"><%= vehicle.vehicle_type %></span>
-    <% if vehicle.user.avatar.attached? %>
-      <%= cl_image_tag vehicle.user.avatar.key, class: "card-vehicle-user avatar-bordered" %>
-    <% else %>
-      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar-bordered" %>
-    <% end %>
   </div>
   <div class="card-vehicle-infos">
     <div>
-      <h3>
-        <%= link_to vehicle.name, vehicle_path(vehicle) %>
-      </h3>
+      <h3><%= link_to vehicle.name, vehicle_path(vehicle) %></h3>
+      <span class="card-vehicle-pricing"><%= vehicle.price %>€ / day</span>
     </div>
-    <h3 class="card-vehicle-pricing"><%= vehicle.price %>€</h3>
+    <% if vehicle.user.avatar.attached? %>
+      <%= cl_image_tag vehicle.user.avatar.key, class: "card-vehicle-user avatar" %>
+    <% else %>
+      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar" %>
+    <% end %>    
   </div>
 </div>
