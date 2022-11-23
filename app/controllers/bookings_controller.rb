@@ -27,20 +27,20 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    @booking = Booking.new
-    @vehicle = Vehicle.find(params[:vehicle_id])
-  end
+  # def edit
+  #   @booking = Booking.new
+  #   @vehicle = Vehicle.find(params[:vehicle_id])
+  # end
 
-  def update
-    set_booking
-    @vehicle = Vehicle.find(params[:vehicle_id])
-    @booking.vehicle = @vehicle
-    @booking.update(bookings_params)
-    # @booking.accepted = true
-    @booking.save!
-    redirect_to dashboard_path
-  end
+  # def update
+  #   set_booking
+  #   @vehicle = Vehicle.find(params[:vehicle_id])
+  #   @booking.vehicle = @vehicle
+  #   @booking.update(bookings_params)
+  #   # @booking.accepted = true
+  #   @booking.save!
+  #   redirect_to dashboard_path
+  # end
 
   def destroy
     set_booking
