@@ -2,5 +2,4 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
-require bootstrap-datepicker
 console.log("Hello from app/javascript/application.js")
