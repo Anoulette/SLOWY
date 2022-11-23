@@ -12,7 +12,7 @@
       <p><%= booking.date %></p>
     </div>
     <div class="card-booking-infos-buttons">
-      <%= link_to raw('<i class="fa-solid fa-trash"></i> Cancel'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
+      <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>Cancel'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
     </div>
     <% if booking.vehicle.user.avatar.attached? %>
       <%= cl_image_tag booking.vehicle.user.avatar.key, class: "card-vehicle-user avatar-bordered" %>
