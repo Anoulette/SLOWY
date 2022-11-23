@@ -15,6 +15,10 @@
       <%= link_to "Edit", edit_vehicle_booking_path(booking.vehicle, booking), class: "button secundary" %>
       <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
     </div>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <% if booking.vehicle.user.avatar.attached? %>
+      <%= cl_image_tag booking.vehicle.user.avatar.key, class: "card-vehicle-user avatar-bordered" %>
+    <% else %>
+      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar-bordered" %>
+    <% end %>
   </div>
 </div>
