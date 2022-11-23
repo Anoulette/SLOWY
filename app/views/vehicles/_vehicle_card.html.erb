@@ -1,6 +1,10 @@
 <div class="card-vehicle">
   <div class="card-vehicle-picture">
-    <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if vehicle.photo.attached? %>
+      <%= cl_image_tag vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
+    <% end %>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-vehicle-user avatar-bordered" />
   </div>
   <div class="card-vehicle-infos">
