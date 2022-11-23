@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render "vehicles/show", status: :unprocessable_entity
+      render "vehicles/show", status: :unprocessable_entity, notice: "Choisir"
     end
   end
 
