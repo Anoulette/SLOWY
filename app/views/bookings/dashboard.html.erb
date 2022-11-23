@@ -1,20 +1,18 @@
 <div class="container">
-  <p id="booking-title">My bookings</p>
+  <h2 id="booking-title">My bookings</h2>
   <ul class="grid">
     <% @bookings.each do |booking| %>
       <li class="grid__item one-half small-one-whole">
         <%= render "booking_card", booking: booking %>
       </li>
     <% end %>
-  </ul>S
-
-  <p id="vehicle-title">My vehicles</p>
-  <ul class="d-flex flex-wrap">
+  </ul>
+  <h2 id="vehicle-title">My vehicles</h2>
+  <ul class="grid">
     <% @vehicles.each do |vehicle| %>
-      <li>
+      <li class="grid__item one-third small-one-whole">
         <%= render "vehicles/vehicle_card", vehicle: vehicle %>
       </li>
     <% end %>
   </ul>
-
 </div>

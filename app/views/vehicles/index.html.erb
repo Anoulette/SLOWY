@@ -1,9 +1,9 @@
 <%= render "banner", custom_class: "home" %>
 <div class="container">
 <h2 id="vehicle-title">Choose a vehicle</h2>
-  <ul class="d-flex flex-wrap">
+  <ul class="grid">
     <% @vehicles.each do |vehicle| %>
-      <li>
+      <li class="grid__item one-third small-one-whole">
         <%= render "vehicle_card", vehicle: vehicle %>
       </li>
     <% end %>
