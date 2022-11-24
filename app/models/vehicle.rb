@@ -11,4 +11,11 @@ class Vehicle < ApplicationRecord
   validates :zipcode, presence: true
   validates :city, presence: true
   validates :price, presence: true, numericality: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_city?
+
+  def address
+    [street_number, street, zipcode, city].compact.join(", ")
+  end
 end
