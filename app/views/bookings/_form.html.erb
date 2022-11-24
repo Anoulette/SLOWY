@@ -1,5 +1,5 @@
-<%= simple_form_for [@vehicle, @booking] do |f| %>
-  <%= f.input :date, as: :date, html5: true %>
+<%= simple_form_for [@vehicle, @booking], data: { controller: "flatpickr", flatpickr_dates_value: @dates_booked } do |f| %>
+  <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %>
   <%= f.button :submit,"Booking", class:"button primary"%>
   <%= link_to "Edit my vehicle",edit_vehicle_path(@vehicle) , class:"button primary"%>
   <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), vehicle_path(@vehicle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
