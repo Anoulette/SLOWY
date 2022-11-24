@@ -152,3 +152,113 @@
     }
   }
 }
+
+/* LENDING CARD */
+
+.card-lending {
+  background: white;
+  box-shadow: $card-shadow;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  
+  .card-lending__twin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    
+    &>div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 0;
+      padding: 32px 8px 24px 8px;
+      
+      &:first-child {
+        border-right: solid 2px $crayola;
+      }
+      
+      img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: solid 1px $crayola;
+        object-fit: cover;
+      }
+
+      span {
+        font-weight: bold;
+        margin-top: 8px;
+      }
+    }
+    
+    .lending-status {
+      position: absolute;
+      top: 12px;
+      left: -6px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background-color: $coffee;
+      color: white;
+      border-radius: 4px;
+      
+      &:after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 100%;
+        border-left: 4px solid transparent;
+        border-top: 4px solid black;
+        opacity: .5;
+      }
+      
+      i {
+        margin-right: 8px;
+        height: 32px;
+        width: 32px;
+        background-color: $red;
+        margin-top: -8px;
+        margin-bottom: -8px;
+        display: inline-flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        
+        .confirmed {
+          background-color: $green;
+        }
+      }
+    }
+  }
+
+  .card-lending__date {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $crayola;
+    
+    h3 {
+      font-size: 24px;
+      margin: 0;
+    }
+  }
+
+  .card-lending__admin {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background-color: $crayola;
+  }
+}
+

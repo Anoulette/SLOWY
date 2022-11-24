@@ -51,6 +51,7 @@ class BookingsController < ApplicationController
   def dashboard
     @vehicles = Vehicle.where(user_id: current_user.id)
     @bookings = Booking.where(user_id: current_user.id)
+    @lendings = Booking.joins(:vehicle).where(vehicle: { user_id: current_user.id })
   end
 
   private

@@ -1,0 +1,41 @@
+<div class="card-lending">
+  <div class="card-lending__twin">
+    <div class="card-lending__vehicle">
+      <% if lending.vehicle.photo.attached? %>
+        <%= cl_image_tag lending.vehicle.photo.key %>
+      <% else %>
+        <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
+      <% end %>
+      <span><%= lending.vehicle.name %></span>
+    </div>
+    <div class="card-lending__user">
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key %>
+      <% else %>
+        <%= image_tag "default_user.svg" %>
+      <% end %>
+      <span><%= lending.user.first_name %> <%= lending.user.last_name %></span>
+    </div>
+    <span class="lending-status">
+      <% if lending.accepted %>
+        <span><i class="fa-solid fa-circle-check"></i>confirmed</span>
+      <% else %>
+        <span><i class="fa-solid fa-hourglass-start confirmed"></i>Approval required</span>
+      <% end%>
+    </span>
+  </div>
+  <div class="card-lending__date">
+    <h3>
+      <i class="fa-solid fa-calendar-days"></i>
+      <%= lending.date.strftime("%d/%m/%Y") %>
+    </h3>
+  </div>
+  <div class="card-lending__admin">
+    <% if lending.accepted %>
+      <span class="button secundary"><i class="fa-regular fa-circle-xmark"></i> Cancel</span>
+    <% else %>
+      <span class="button primary"><i class="fa-regular fa-circle-check"></i> Accept</span>
+      <span class="button secundary"><i class="fa-regular fa-circle-xmark"></i> Decline</span>
+    <% end %>
+  </div>
+</div>
