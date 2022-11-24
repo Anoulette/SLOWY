@@ -1,0 +1,42 @@
+.dashboard {
+
+  .dashboard__hero {
+    background-color: $crayola;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px $lavender;
+    
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      h1 {
+        font-size: 48px;
+        color: $coffee;
+        margin: 0;
+      }
+    }
+  }
+  .dashboard__content {
+    .dash-h2 {
+      margin-top: 64px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+
+      h2 {
+        color: $emerald;
+      }
+
+      div {
+        height: 1px;
+        background-color: $lavender;
+        flex-grow: 1;
+      }
+    }
+  }
+}
