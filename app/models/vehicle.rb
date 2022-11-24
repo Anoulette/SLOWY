@@ -6,5 +6,9 @@ class Vehicle < ApplicationRecord
   validates :name, presence: true
   validates :details, presence: true, length: { minimum: 20 }
   validates :vehicle_type, presence: true, inclusion: { in: ["bike", "e-bike", "cargo bike", "overboard", "scooter", "e-scooter", "e-unicycle"] }
+  validates :street_number, presence: true
+  validates :street, presence: true
+  validates :zipcode, presence: true
+  validates :city, presence: true
   validates :price, presence: true, numericality: true
 end
