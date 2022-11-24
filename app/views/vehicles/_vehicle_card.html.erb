@@ -5,7 +5,12 @@
     <% else %>
       <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
     <% end %>
-    <span class="type-tag"><%= vehicle.vehicle_type %></span>
+    <span class="type-tag">
+      <%= vehicle.vehicle_type %>
+      <% if vehicle.vehicle_type.include?("e-") %>
+        <i class="fa-solid fa-bolt-lightning"></i>
+      <% end %>
+    </span>
   </div>
   <div class="card-vehicle-infos">
     <div>

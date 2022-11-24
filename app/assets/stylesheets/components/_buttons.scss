@@ -36,3 +36,13 @@
     }
   }
 }
+
+.simple-link {
+  color: $emerald;
+  transition: all .15s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: $flame;
+  }
+}
