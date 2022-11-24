@@ -1,27 +1,52 @@
-<div class="vehicle">
-    <% if @vehicle.photo.key %>
-    <%= cl_image_tag @vehicle.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="container">
+  <div class="vehicle-nav">
+    <%= link_to vehicles_path, class: "simple-link" do %>
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to vehicles list
     <% end %>
-    <div class="vehicle-description">
-      <h2><%= @vehicle.name %></h2>
-
-      <p>Type de véhicule : <%= @vehicle.vehicle_type %></p>
-      <p>Prix du véhicule : <%= @vehicle.price %>€</p>
-      <p>Description : <%= @vehicle.details %></p>
-
-      <div class="vehicle-links">
-        <%= link_to "Retour à la liste des véhicules", vehicles_path %>
-        <%# <%= link_to "Réserver ce véhicule", new_vehicle_booking_path %>
-      </div>
-
-      <%= render "bookings/form" %>
-
-      <% if current_user == @vehicle.user %>
-        <div class="vehicle__edit">
-          <%= link_to "Edit my vehicle",edit_vehicle_path(@vehicle) , class:"button primary"%>
-          <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), vehicle_path(@vehicle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
-        </div>
+  </div>
+  <div class="vehicle grid">
+    <div class="vehicle__image grid__item one-half small-one-whole">
+      <% if @vehicle.photo.key %>
+        <%= cl_image_tag @vehicle.photo.key %>
+      <% else %>
+        <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
       <% end %>
-
     </div>
+    <div class="vehicle__content grid__item one-half small-one-whole">
+      <div class="vehicle__details">
+        <h1><%= @vehicle.name %></h1>
+        <div class="vehicle__type">
+          <%= @vehicle.vehicle_type %>
+          <% if @vehicle.vehicle_type.include?("e-") %>
+            <i class="fa-solid fa-bolt-lightning"></i>
+          <% end %>
+        </div>
+        <div class="vehicle__price"><span><%= @vehicle.price %>€</span> / day</div>
+        <div class="vehicle__address">
+          <i class="fa-solid fa-location-pin"></i>
+          <%= @vehicle.zipcode %> <%= @vehicle.city %>
+        </div>
+        <div class="vehicle__description"><%= @vehicle.details %></div>
+      </div>
+      <div class="vehicle__booking<% if current_user == @vehicle.user %> owned<% end %>">
+        <h2>Book me!</h2>
+        <%= render "bookings/form" %>
+      </div>
+    </div>
+  </div>
+  <% if current_user == @vehicle.user %>
+    <div class="vehicle-owner-section">
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% else %>
+        <%= image_tag "default_user.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <% end %>
+      <h2>Owner's toolbar</h2>
+      <div>
+        <%= link_to "Edit my vehicle",edit_vehicle_path(@vehicle) , class:"button primary"%>
+        <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), vehicle_path(@vehicle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
+      </div>
+    </div>
+  <% end %>
 </div>
