@@ -61,6 +61,11 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def notifications
+    sleep(2)
+    @lendings = Booking.joins(:vehicle).where(vehicle: { user_id: current_user.id })
+  end
+
   private
 
   def set_booking

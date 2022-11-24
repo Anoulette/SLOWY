@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   patch '/dashboard/booking/:id/approve', to: "bookings#approve", as: :approve
   # patch '/bookings', to: "bookings#update"
 
+  get '/notifications', to: 'bookings#notifications'
+
   resources :vehicles do
     resources :bookings, except: :destroy
   end

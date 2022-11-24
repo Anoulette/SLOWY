@@ -8,14 +8,16 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log('toto');
-    console.log(this.map);
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v10",
+      center: [2.213749, 46.227638]
     })
+    const nav = new mapboxgl.NavigationControl();
+    this.map.addControl(nav, 'top-left');
+    this.map.scrollZoom.disable();
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
 
@@ -44,5 +46,3 @@ export default class extends Controller {
   }
 
 }
-
-
