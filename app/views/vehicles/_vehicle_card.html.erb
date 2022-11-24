@@ -7,7 +7,7 @@
     <% end %>
     <span class="type-tag">
       <%= vehicle.vehicle_type %>
-      <% if vehicle.vehicle_type.include?("e-") %>
+      <% if vehicle.vehicle_type.include?("e-") || vehicle.vehicle_type == 'overboard' %>
         <i class="fa-solid fa-bolt-lightning"></i>
       <% end %>
     </span>
@@ -15,7 +15,7 @@
   <div class="card-vehicle-infos">
     <div>
       <h3><%= link_to vehicle.name, vehicle_path(vehicle) %></h3>
-      <span class="card-vehicle-pricing"><%= vehicle.price %>€ / day</span>
+      <span class="card-vehicle-pricing"><%= vehicle.price %>€</span> / day
     </div>
     <% if vehicle.user.avatar.attached? %>
       <%= cl_image_tag vehicle.user.avatar.key, class: "card-vehicle-user avatar" %>

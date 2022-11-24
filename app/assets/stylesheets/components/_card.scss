@@ -54,7 +54,7 @@
         margin-left: 8px;
         height: 32px;
         width: 32px;
-        background-color: red;
+        background-color: $flame;
         margin-top: -8px;
         margin-bottom: -8px;
         display: flex;
@@ -100,20 +100,17 @@
     justify-content: space-between;
     align-items: flex-end;
     background-color: $lavender;
-  }
 
-  .card-trip-infos .card-trip-user {
-    position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
+    .card-vehicle-pricing {
+      font-size: 20px;
+      font-weight: bold;
+    }
   }
 }
 
 /* BOOKING CARD */
 
 .card-booking {
-  overflow: hidden;
   background: white;
   box-shadow: $card-shadow;
   width: 100%;
@@ -133,6 +130,46 @@
       height: 100%;
       object-fit: cover;
     }
+
+    .booking-status {
+      position: absolute;
+      top: 12px;
+      left: -6px;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background-color: $coffee;
+      color: white;
+      border-radius: 4px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 100%;
+        border-left: 4px solid transparent;
+        border-top: 4px solid black;
+        opacity: .5;
+      }
+
+      i {
+        margin-right: 8px;
+        height: 40px;
+        width: 40px;
+        background-color: $red;
+        margin-top: -12px;
+        margin-bottom: -12px;
+        display: inline-flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        &.confirmed {
+          background-color: $green;
+        }
+      }
+    }
   }
   
   .card-booking-infos {
@@ -143,6 +180,22 @@
     flex-direction: column;
     gap: 16px;
     background-color: $crayola;
+
+    &>div:not(.card-booking-infos-buttons) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &>div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        i {
+          width: 16px;
+        }
+      }
+    }
 
     .card-booking-infos-buttons {
       display: flex;

@@ -1,73 +1,94 @@
-<div class="container">
-  <div class="dashboard">
-    <h1>My dashboard</h1>
-    <% if current_user.bookings.count > 0 %>
-      <section class="dashboard__borrow">
-        <div id="my-bookings">
-          <h2>My bookings</h2>
-          <ul class="grid">
-            <% @bookings.each do |booking| %>
-              <li class="grid__item one-half small-one-whole">
-                <%= render "booking_card", booking: booking %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-      </section>
-    <% end %>
-    <section class="dashboard__lend">
-      <% if current_user.vehicles.count > 0 %>
-        <div id="my-vehicles">
-          <h2>My vehicles</h2>
-          <ul class="grid">
-            <% @vehicles.each do |vehicle| %>
-              <li class="grid__item one-third small-one-whole">
-                <%= render "vehicles/vehicle_card", vehicle: vehicle %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+<section class="dashboard">
+  <div class="dashboard__hero">
+    <div class="container">
+      <% if current_user.avatar.attached? %>
+        <%= cl_image_tag current_user.avatar.key, class: "card-vehicle-user avatar" %>
+      <% else %>
+        <%= image_tag "default_user.svg", class:"card-vehicle-user avatar" %>
       <% end %>
-      <% if @lendings.size > 0 %>
-        <div id="my-lendings">
-          <h2>
-            <% @lendings.each do |lending| %>
-              <% if lending.accepted == nil %>
-                My lendings (waiting for approval)
-              <% end %>
-            <% end %>
-          </h2>
-
-          <ul class="grid">
-            <% @lendings.each do |lending| %>
-              <% if lending.accepted == nil %>
-              <li class="grid__item one-third small-one-whole">
-                <%= render "lending_card", lending: lending %>
-              </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-
-        <div id="my-lendings">
-          <h2>
-            <% @lendings.each do |lending| %>
-              <% if lending.accepted == true %>
-              My lendings (confirmed)
-              <% end %>
-            <% end %>
-          </h2>
-           <ul class="grid">
-            <% @lendings.each do |lending| %>
-              <% if lending.accepted == true %>
-              <li class="grid__item one-third small-one-whole">
-                <%= render "lending_card", lending: lending %>
-              </li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-    </section>
+      <h1>My dashboard</h1>
+    </div>      
   </div>
-</div>
+  <div class="container">
+    <div class="dashboard__content">      
+      <% if current_user.bookings.count > 0 %>
+        <div class="dashboard__borrow dashboard__section">
+          <div id="my-bookings">
+            <div class="dash-h2">
+              <h2>My bookings</h2>
+              <div></div>
+            </div>
+            <ul class="grid">
+              <% @bookings.each do |booking| %>
+                <li class="grid__item one-half small-one-whole">
+                  <%= render "booking_card", booking: booking %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+      <div class="dashboard__lend dashboard__section">
+        <% if current_user.vehicles.count > 0 %>
+          <div id="my-vehicles">
+            <div class="dash-h2">
+              <h2>My vehicles</h2>
+              <div></div>
+            </div>
+            <ul class="grid">
+              <% @vehicles.each do |vehicle| %>
+                <li class="grid__item one-third small-one-whole">
+                  <%= render "vehicles/vehicle_card", vehicle: vehicle %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if @lendings.size > 0 %>
+          <div id="my-lendings">
+            <div class="dash-h2">
+              <h2>
+                <% @lendings.each do |lending| %>
+                  <% if lending.accepted == nil %>
+                    My lendings (waiting for approval)
+                  <% end %>
+                <% end %>
+              </h2>
+              <div></div>
+            </div>
+            <ul class="grid">
+              <% @lendings.each do |lending| %>
+                <% if lending.accepted == nil %>
+                <li class="grid__item one-third small-one-whole">
+                  <%= render "lending_card", lending: lending %>
+                </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+          <div id="my-lendings">
+            <div class="dash-h2">
+              <h2>
+                <% @lendings.each do |lending| %>
+                  <% if lending.accepted == true %>
+                  My lendings (confirmed)
+                  <% end %>
+                <% end %>
+              </h2>
+              <div></div>
+             </div>
+             <ul class="grid">
+              <% @lendings.each do |lending| %>
+                <% if lending.accepted == true %>
+                <li class="grid__item one-third small-one-whole">
+                  <%= render "lending_card", lending: lending %>
+                </li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
