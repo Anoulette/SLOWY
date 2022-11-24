@@ -10,14 +10,21 @@
     <div>
       <h3><%= booking.vehicle.name %></h3>
       <p><%= booking.date %></p>
+      <div class="card-booking-accepted">
+        <% if booking.accepted %>
+          <span><i class="fa-solid fa-badge-check"></i> confirmed</span>
+        <% else %>
+          <span><i class="fa-solid fa-hourglass-start"></i> waiting for confirmation</span>
+        <% end %>
+      </div>
     </div>
     <div class="card-booking-infos-buttons">
       <%= link_to raw('<i class="fa-regular fa-circle-xmark"></i>Cancel'), booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
     </div>
     <% if booking.vehicle.user.avatar.attached? %>
-      <%= cl_image_tag booking.vehicle.user.avatar.key, class: "card-vehicle-user avatar-bordered" %>
+      <%= cl_image_tag booking.vehicle.user.avatar.key, class: "card-vehicle-user avatar" %>
     <% else %>
-      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar-bordered" %>
+      <%= image_tag "default_user.svg", class:"card-vehicle-user avatar" %>
     <% end %>
   </div>
 </div>

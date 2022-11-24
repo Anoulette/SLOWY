@@ -1,18 +1,45 @@
 <div class="container">
-  <h2 id="booking-title">My bookings</h2>
-  <ul class="grid">
-    <% @bookings.each do |booking| %>
-      <li class="grid__item one-half small-one-whole">
-        <%= render "booking_card", booking: booking %>
-      </li>
+  <div class="dashboard">
+    <h1>My dashboard</h1>
+    <% if current_user.bookings.count > 0 %>
+      <section class="dashboard__borrow">
+        <div id="my-bookings">
+          <h2>My bookings</h2>
+          <ul class="grid">
+            <% @bookings.each do |booking| %>
+              <li class="grid__item one-half small-one-whole">
+                <%= render "booking_card", booking: booking %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </section>
     <% end %>
-  </ul>
-  <h2 id="vehicle-title">My vehicles</h2>
-  <ul class="grid">
-    <% @vehicles.each do |vehicle| %>
-      <li class="grid__item one-third small-one-whole">
-        <%= render "vehicles/vehicle_card", vehicle: vehicle %>
-      </li>
-    <% end %>
-  </ul>
+    <section class="dashboard__lend">
+      <% if current_user.vehicles.count > 0 %>
+        <div id="my-vehicles">
+          <h2>My vehicles</h2>
+          <ul class="grid">
+            <% @vehicles.each do |vehicle| %>
+              <li class="grid__item one-third small-one-whole">
+                <%= render "vehicles/vehicle_card", vehicle: vehicle %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <% if @lendings.size > 0 %>
+        <div id="my-lendings">
+          <h2>My lendings</h2>
+          <ul class="grid">
+            <% @lendings.each do |lending| %>
+              <li class="grid__item one-third small-one-whole">
+                <%= render "lending_card", lending: lending %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </section>
+  </div>
 </div>
