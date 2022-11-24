@@ -2,7 +2,7 @@
     <% if @lendings.size > 0 %>
         <% @lendings.each do |lending| %>
             <% if lending.accepted.nil? %>
-                <i class="fa-solid fa-circle-exclamation"></i>
+                <i class="fa-solid fa-circle-exclamation text-warning"></i>
             <% end %>
         <% end %>
     <% end %>
