@@ -222,17 +222,17 @@
       
       i {
         margin-right: 8px;
-        height: 32px;
-        width: 32px;
+        height: 40px;
+        width: 40px;
         background-color: $red;
-        margin-top: -8px;
-        margin-bottom: -8px;
+        margin-top: -12px;
+        margin-bottom: -12px;
         display: inline-flex;
         border-radius: 50%;
         align-items: center;
         justify-content: center;
         
-        .confirmed {
+        &.confirmed {
           background-color: $green;
         }
       }

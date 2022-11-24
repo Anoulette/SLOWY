@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/dashboard', to: "bookings#dashboard"
   get '/dashboard/booking/:id/edit', to: "bookings#edit", as: :edit_dashboard
+  patch '/dashboard/booking/:id/approve', to: "bookings#approve", as: :approve
   # patch '/bookings', to: "bookings#update"
 
   resources :vehicles do

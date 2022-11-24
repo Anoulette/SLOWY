@@ -54,6 +54,13 @@ class BookingsController < ApplicationController
     @lendings = Booking.joins(:vehicle).where(vehicle: { user_id: current_user.id })
   end
 
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true
+    @booking.save!
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_booking

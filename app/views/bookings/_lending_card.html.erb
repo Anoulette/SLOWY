@@ -18,9 +18,9 @@
     </div>
     <span class="lending-status">
       <% if lending.accepted %>
-        <span><i class="fa-solid fa-circle-check"></i>confirmed</span>
+        <span><i class="fa-solid fa-circle-check confirmed"></i>confirmed</span>
       <% else %>
-        <span><i class="fa-solid fa-hourglass-start confirmed"></i>Approval required</span>
+        <span><i class="fa-solid fa-hourglass-start"></i>Approval required</span>
       <% end%>
     </span>
   </div>
@@ -32,10 +32,16 @@
   </div>
   <div class="card-lending__admin">
     <% if lending.accepted %>
-      <span class="button secundary"><i class="fa-regular fa-circle-xmark"></i> Cancel</span>
+      <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button secundary" do %>
+        <i class="fa-regular fa-circle-xmark"></i> Cancel
+      <% end %>
     <% else %>
-      <span class="button primary"><i class="fa-regular fa-circle-check"></i> Accept</span>
-      <span class="button secundary"><i class="fa-regular fa-circle-xmark"></i> Decline</span>
+      <%= link_to approve_path(lending), data: {turbo_method: :patch}, class: "button primary" do %>
+        <i class="fa-regular fa-circle-check"></i> Accept
+      <% end %>
+      <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button secundary" do %>
+        <i class="fa-regular fa-circle-xmark"></i> Decline
+      <% end %>
     <% end %>
   </div>
 </div>
