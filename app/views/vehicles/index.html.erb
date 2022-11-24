@@ -1,7 +1,11 @@
 <%= render "banner", custom_class: "home" %>
 <div class="container">
 <h2 id="vehicle-title">Choose a vehicle</h2>
-  <ul class="grid">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
+    <ul class="grid">
     <% @vehicles.each do |vehicle| %>
       <li class="grid__item one-third small-one-whole">
         <%= render "vehicle_card", vehicle: vehicle %>
