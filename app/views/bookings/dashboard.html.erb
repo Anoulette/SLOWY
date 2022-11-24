@@ -33,7 +33,7 @@
           <h2>
             <% @lendings.each do |lending| %>
               <% if lending.accepted == nil %>
-                My lendings(Waiting for approval)
+                My lendings (waiting for approval)
               <% end %>
             <% end %>
           </h2>
@@ -53,7 +53,7 @@
           <h2>
             <% @lendings.each do |lending| %>
               <% if lending.accepted == true %>
-              My lendings(confirmed)
+              My lendings (confirmed)
               <% end %>
             <% end %>
           </h2>
