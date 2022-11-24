@@ -30,12 +30,40 @@
       <% end %>
       <% if @lendings.size > 0 %>
         <div id="my-lendings">
-          <h2>My lendings</h2>
+          <h2>
+            <% @lendings.each do |lending| %>
+              <% if lending.accepted == nil %>
+                My lendings(Waiting for approval)
+              <% end %>
+            <% end %>
+          </h2>
+
           <ul class="grid">
             <% @lendings.each do |lending| %>
+              <% if lending.accepted == nil %>
               <li class="grid__item one-third small-one-whole">
                 <%= render "lending_card", lending: lending %>
               </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div id="my-lendings">
+          <h2>
+            <% @lendings.each do |lending| %>
+              <% if lending.accepted == true %>
+              My lendings(confirmed)
+              <% end %>
+            <% end %>
+          </h2>
+           <ul class="grid">
+            <% @lendings.each do |lending| %>
+              <% if lending.accepted == true %>
+              <li class="grid__item one-third small-one-whole">
+                <%= render "lending_card", lending: lending %>
+              </li>
+              <% end %>
             <% end %>
           </ul>
         </div>
