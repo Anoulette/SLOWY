@@ -18,7 +18,10 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <span class="nav-link">Welcome <%= current_user.first_name %>!</span>
+            <span class="nav-link">
+              Welcome <%= current_user.first_name %>!
+              <turbo-frame id="notifications" src="/notifications" data-turbo-permanent="true"></turbo-frame>
+            </span>
           </li>
           <li class="nav-item dropdown">
             <% if current_user.avatar.attached? %>
