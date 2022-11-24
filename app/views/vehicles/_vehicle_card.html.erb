@@ -5,7 +5,7 @@
     <% else %>
       <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
     <% end %>
-    <span class="type-tag">
+    <span class="text-tag">
       <%= vehicle.vehicle_type %>
       <% if vehicle.vehicle_type.include?("e-") || vehicle.vehicle_type == 'overboard' %>
         <i class="fa-solid fa-bolt-lightning"></i>

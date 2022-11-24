@@ -31,8 +31,9 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
-                <%= link_to "My lendings", dashboard_path(anchor: "my-lendings"), class: "dropdown-item" %>
-                <turbo-frame id="notifications" src="/notifications" data-turbo-permanent="true"></turbo-frame>
+                <%= link_to dashboard_path(anchor: "my-lendings"), class: "dropdown-item contingent" do %>
+                  <turbo-frame id="notifications" src="/notifications" data-turbo-permanent="true"></turbo-frame>
+                <% end %>                
               <% if current_user.bookings.count > 0 %>
                 <%= link_to "My bookings", dashboard_path(anchor: "my-bookings"), class: "dropdown-item" %>
               <% end %>

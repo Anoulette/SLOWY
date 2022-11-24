@@ -15,7 +15,10 @@
         <div class="dashboard__borrow dashboard__section">
           <div id="my-bookings">
             <div class="dash-h2">
-              <h2>My bookings</h2>
+              <h2>
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>My bookings</span>
+              </h2>
               <div></div>
             </div>
             <ul class="grid">
@@ -32,7 +35,10 @@
         <% if current_user.vehicles.count > 0 %>
           <div id="my-vehicles">
             <div class="dash-h2">
-              <h2>My vehicles</h2>
+              <h2>
+                <i class="fa-solid fa-bicycle"></i>
+                <span>My vehicles</span>
+              </h2>
               <div></div>
             </div>
             <ul class="grid">
@@ -45,21 +51,23 @@
           </div>
         <% end %>
         <% if @lendings.size > 0 %>
-          <div id="my-lendings">
-            <div class="dash-h2">
-              <h2>
-                <% @lendings.each do |lending| %>
-                  <% if lending.accepted == nil %>
-                    My lendings (waiting for approval)
-                  <% end %>
-                <% end %>
-              </h2>
-              <div></div>
-            </div>
+          <div id="my-lendings">            
+            <% @lendings.each do |lending| %>
+              <% if lending.accepted == nil %>
+                <div class="dash-h2">
+                  <h2>
+                    <i class="fa-solid fa-circle-exclamation text-warning"></i>
+                    <span>My vehicles bookings</span>
+                  </h2>
+                  <div></div>
+                </div>
+                <% break %>
+              <% end %>
+            <% end %>
             <ul class="grid">
               <% @lendings.each do |lending| %>
                 <% if lending.accepted == nil %>
-                <li class="grid__item one-third small-one-whole">
+                <li class="grid__item one-half small-one-whole">
                   <%= render "lending_card", lending: lending %>
                 </li>
                 <% end %>
@@ -67,20 +75,22 @@
             </ul>
           </div>
           <div id="my-lendings">
-            <div class="dash-h2">
-              <h2>
-                <% @lendings.each do |lending| %>
-                  <% if lending.accepted == true %>
-                  My lendings (confirmed)
-                  <% end %>
-                <% end %>
-              </h2>
-              <div></div>
-             </div>
+            <% @lendings.each do |lending| %>
+              <% if lending.accepted == true %>
+                <div class="dash-h2">
+                  <h2>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span>My vehicles bookings</span>
+                  </h2>
+                  <div></div>
+                </div>
+                <% break %>
+              <% end %>
+            <% end %>
              <ul class="grid">
               <% @lendings.each do |lending| %>
                 <% if lending.accepted == true %>
-                <li class="grid__item one-third small-one-whole">
+                <li class="grid__item one-half small-one-whole">
                   <%= render "lending_card", lending: lending %>
                 </li>
                 <% end %>
