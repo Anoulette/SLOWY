@@ -32,7 +32,8 @@
       position: absolute;
       top: 12px;
       left: -6px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
       text-transform: uppercase;
       padding: 2px 8px;
       background-color: $coffee;
@@ -47,6 +48,19 @@
         border-left: 4px solid transparent;
         border-top: 4px solid black;
         opacity: .5;
+      }
+
+      i {
+        margin-left: 8px;
+        height: 32px;
+        width: 32px;
+        background-color: red;
+        margin-top: -8px;
+        margin-bottom: -8px;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

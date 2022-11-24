@@ -1,6 +1,4 @@
 <%= simple_form_for [@vehicle, @booking] do |f| %>
   <%= f.input :date, as: :date, html5: true %>
   <%= f.button :submit,"Booking", class:"button primary"%>
-  <%= link_to "Edit my vehicle",edit_vehicle_path(@vehicle) , class:"button primary"%>
-  <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), vehicle_path(@vehicle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
 <% end %>

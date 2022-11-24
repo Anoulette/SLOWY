@@ -15,5 +15,13 @@
       </div>
 
       <%= render "bookings/form" %>
+
+      <% if current_user == @vehicle.user %>
+        <div class="vehicle__edit">
+          <%= link_to "Edit my vehicle",edit_vehicle_path(@vehicle) , class:"button primary"%>
+          <%= link_to raw('<i class="fa-solid fa-trash"></i> Remove'), vehicle_path(@vehicle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"button secundary" %>
+        </div>
+      <% end %>
+
     </div>
 </div>
