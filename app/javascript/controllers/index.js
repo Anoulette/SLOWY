@@ -13,5 +13,5 @@ application.register("flatpickr", FlatpickrController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import LendingApprovalController from "./lending_approval_controller"
-application.register("lending-approval", LendingApprovalController)
+import MapController from "./map_controller"
+application.register("map", MapController)

@@ -4,6 +4,14 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = Vehicle.all
+    @markers = @vehicles.geocoded.map do |vehicle|
+      {
+        lat: vehicle.latitude,
+        lng: vehicle.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { vehicle: vehicle }),
+        image_url: helpers.asset_url("#{vehicle.photo.key}")
+      }
+    end
   end
 
   def new
