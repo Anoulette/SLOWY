@@ -1,4 +1,4 @@
-<%= simple_form_for [@vehicle, @booking] do |f| %>
-  <%= f.input :date, as: :date, html5: true %>
+<%= simple_form_for [@vehicle, @booking], data: { controller: "flatpickr", flatpickr_dates_value: @dates_booked } do |f| %>
+  <%= f.input :date, as: :string, input_html: { data: { flatpickr_target: "date" } } %>
   <%= f.button :submit,"Booking", class:"button primary"%>
 <% end %>
