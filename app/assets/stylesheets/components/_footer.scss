@@ -1,15 +1,37 @@
 .footer {
-  margin-top: 64px;
   background: $lavender;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1;
-  padding: 0px 90px;
+  flex-direction: column;
+  padding: 24px 64px;
   color: $coffee;
+
+  h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+
+  .media{
+    margin: 10px;
+    color: $coffee;
+  }
+  .copyright {
+    width: 100%;
+    color: $emerald;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-s;
+    margin-top: 24px;
+
+    img {
+      height: 24px;
+      width: auto;
+    }
+  }
 }
 
-.media{
-  margin:10px;
-  color: black;
-}
+

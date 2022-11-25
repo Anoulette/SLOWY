@@ -1,8 +1,13 @@
 .dashboard {
+  padding-bottom: 64px;
 
   .dashboard__hero {
     background-color: $crayola;
-    height: 160px;
+    background-image: asset-url('slowy_bg.png');
+    background-repeat: repeat;
+    background-size: 128px;
+    padding-top: 56px;
+    padding-bottom: 72px;
     display: flex;
     align-items: center;
     border-bottom: solid 1px $lavender;
@@ -20,8 +25,27 @@
     }
   }
   .dashboard__content {
+
+    .dashboard__user {
+      .avatar {
+        width: 96px;
+        height: 96px;
+        margin-top: -48px;
+        margin-right: 16px;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      .simple-link {
+        display: inline-flex;
+        margin-left: 8px;
+      }
+    }
+
     .dash-h2 {
-      margin-top: 64px;
+      margin-top: 48px;
       margin-bottom: 32px;
       display: flex;
       align-items: center;
