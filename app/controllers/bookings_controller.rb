@@ -58,6 +58,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.accepted = true
     @booking.save!
+    flash[:alert] = "Booking accepted" if @booking.accepted?
     redirect_to dashboard_path
   end
 
