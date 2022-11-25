@@ -5,10 +5,10 @@
   align-items: center;
 
   &.home {
-    min-height: 80vh;
-    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('slowy_hero.jpg');
+    min-height: 66vh;
+    background-image: asset-url('trottinette.jpeg');
   }
-  
+
   h1 {
     margin: 0;
     color: white;
@@ -16,7 +16,7 @@
     font-size: 32px;
     font-weight: bold;
   }
-  
+
   p {
     font-size: 20px;
     color: white;
