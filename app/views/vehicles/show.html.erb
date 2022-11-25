@@ -27,6 +27,10 @@
           <i class="fa-solid fa-location-pin"></i>
           <%= @vehicle.zipcode %> <%= @vehicle.city %>
         </div>
+        <div class="vehicle__owner">
+          <i class="fa-solid fa-user"></i>
+          <%= @vehicle.user.first_name %> <%= @vehicle.user.last_name %>
+        </div>
         <div class="vehicle__description"><%= @vehicle.details %></div>
       </div>
       <div class="vehicle__booking<% if current_user == @vehicle.user %> owned<% end %>">

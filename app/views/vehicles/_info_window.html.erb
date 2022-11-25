@@ -1,3 +1,12 @@
-<h2><%= vehicle.vehicle_type.upcase %></h2>
-<p><%= vehicle.name %></p>
-<p><%=  vehicle.price %>€</p>
+
+<span class="text-tag"><%= vehicle.vehicle_type.upcase %></span>
+<% if vehicle.photo.attached? %>
+  <%= cl_image_tag vehicle.photo.key, height: 350, width: 400, crop: :fill %>
+<% else %>
+  <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
+<% end %>
+<div>
+  <strong><%= vehicle.name %></strong>
+  <p><%= vehicle.price %>€</p>
+  <%= link_to "See vehicle", vehicle_path(vehicle), class: "button primary" %>
+</div>

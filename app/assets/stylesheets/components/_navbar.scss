@@ -2,6 +2,8 @@
   justify-content: space-between;
   background: white;
   box-shadow: 0 2px 4px $lavender;
+  padding-top: 16px;
+  padding-bottom: 16px;
   
   .navbar-collapse {
     flex-grow: 0;
@@ -9,6 +11,15 @@
   
   .navbar-brand img {
     width: 96px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .navbar-lewagon {
+    .container-fluid {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
   }
 }
 

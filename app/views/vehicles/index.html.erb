@@ -1,30 +1,37 @@
 <%= render "banner", custom_class: "home" %>
-<div class="container">
-<h2 id="vehicle-title">Choose a vehicle</h2>
-  <div style="width: 100%; height: 400px;" class="mb-5"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
-
-    <%= form_with url: vehicles_path, method: :get, class: "d-flex mb-4" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control form-inputs form-log",
-        placeholder: "Search by vehicle type"%>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-   <% end %>
-
-   <% if @vehicles.blank? %>
-    <div>
-      <p><%= @notice %></p>
+<div class="main">
+  <div class="container">  
+    <h2 id="vehicle-title">Search for a type of a vehicle</h2>  
+    <div class="search">      
+      <%= form_with url: vehicles_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control form-inputs form-log",
+          placeholder: "Looking for a bike, a scooter, a cargo bike... ?"%>
+        <%= submit_tag "Search", class: "button primary" %>
+      <% end %>
+      <% if @vehicles.blank? %>
+        <div class="notice">
+          <p><%= @notice %></p>
+        </div>
+      <% end %>
     </div>
-   <% end %>
-
-    <ul class="grid">
-    <% @vehicles.each do |vehicle| %>
-      <li class="grid__item one-third small-one-whole">
-        <%= render "vehicle_card", vehicle: vehicle %>
-      </li>
-    <% end %>
-  </ul>
+    <h2 id="map-title">Available vehicles</h2>
+    <div class="map">
+      <div style="width: 100%; height: 500px;" class="mb-5"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>">
+      </div>
+    </div>
+    <div class="vehicles">
+      <ul class="grid">
+        <% @vehicles.each do |vehicle| %>
+          <li class="grid__item one-third small-one-whole">
+            <%= render "vehicle_card", vehicle: vehicle %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>

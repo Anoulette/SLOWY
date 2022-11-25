@@ -1,1 +1,101 @@
 // Specific CSS for your home-page
+
+.main {
+  padding-bottom: 64px;
+
+  .search {
+    width: 100%;
+    box-shadow: $card-shadow;
+    background-color: $crayola;
+    background-image: asset-url('slowy_bg.png');
+    background-repeat: repeat;
+    background-size: 128px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    form {
+      width: 640px;
+      max-width: 100%;
+
+      .form-log {
+        width: 100%;
+        border-radius: 24px;
+        margin-right: 16px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .form-control {
+        font-size: 24px;      
+      }
+    }
+
+    .notice {
+      background-color: white;
+      border: solid 1px $flame;
+      border-radius: $border-radius;
+      padding: 4px 8px;
+      position: relative;
+
+      p {
+        margin: 0;
+        color: $flame;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-50%);
+        border-style: solid;
+        border-width: 0 0.8rem 0.8rem 0.8rem;
+        border-color: transparent transparent $flame transparent;
+      }
+    }
+  }
+
+  .map {
+    width: 100%;
+    box-shadow: $card-shadow;
+    border-radius: $border-radius;
+
+    .mapboxgl-popup-content {
+      border-radius: 16px;
+      padding: 8px;
+      text-align: center;
+
+      img {
+        width: 128px;
+        height: 96px;
+        border-radius: 4px;
+      }
+      
+      button {
+        background-color: $red;
+        color: white;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 8px;
+        width: 24px;
+        height: 24px;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4px;
+      }
+
+      p {
+        margin: 0 0 4px 0;
+      }
+
+      .button {
+        min-height: 32px;
+      }
+    }
+  }
+}
