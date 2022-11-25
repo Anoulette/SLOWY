@@ -1,3 +1,51 @@
 .form-log{
-    width: 400px;
+  width: 400px;
+}
+
+.form__page {
+  background-color: $crayola;
+  background-image: asset-url('slowy_bg.png');
+  background-repeat: repeat;
+  background-size: 128px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-height: 80vh;
+
+  .form__card {
+    width: 600px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: $border-radius;
+    padding: 24px;
+    box-shadow: $card-shadow;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1, h2 {
+      width: 100%;
+      text-align: center;
+      margin-top: 16px;
+      margin-bottom: 0;
+      color: $coffee;
+      padding-bottom: 16px;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h3 {
+      margin: 16px;
+      text-align: center;
+    }
+
+    .form__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
