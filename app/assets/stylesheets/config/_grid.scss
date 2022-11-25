@@ -1,21 +1,19 @@
-$grid-gap: 24px;
-
 .grid {
   display: flex;  
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: flex-start;
-  gap: $grid-gap;
+  gap: $gap;
 
   .grid__item {
     &.one-half {
-      width: calc((100% - #{$grid-gap}) / 2);
+      width: calc((100% - #{$gap}) / 2);
     }
     &.one-third {
-      width: calc((100% - (#{$grid-gap} * 2)) / 3);
+      width: calc((100% - (#{$gap} * 2)) / 3);
     }
     &.one-quarter {
-      width: calc((100% - (#{$grid-gap} * 3)) / 4);
+      width: calc((100% - (#{$gap} * 3)) / 4);
     }
   }
 }
@@ -27,7 +25,7 @@ $grid-gap: 24px;
           width: 100%;
         }
       &.small-one-half {
-        width: calc((100% - (#{$grid-gap})) / 2);
+        width: calc((100% - (#{$gap})) / 2);
       }
     }
   }  

@@ -30,6 +30,13 @@
 
       h2 {
         color: $emerald;
+        display: flex;
+        align-items: center;
+        gap: $gap-s;
+
+        i {
+          color: $coffee;
+        }
       }
 
       div {

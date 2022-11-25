@@ -1,47 +1,52 @@
-<div class="card-lending">
-  <div class="card-lending__twin">
-    <div class="card-lending__vehicle">
-      <% if lending.vehicle.photo.attached? %>
-        <%= cl_image_tag lending.vehicle.photo.key %>
-      <% else %>
-        <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
-      <% end %>
-      <span><%= lending.vehicle.name %></span>
-    </div>
-    <div class="card-lending__user">
-      <% if current_user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key %>
-      <% else %>
-        <%= image_tag "default_user.svg" %>
-      <% end %>
-      <span><%= lending.user.first_name %> <%= lending.user.last_name %></span>
-    </div>
-    <span class="lending-status">
+<div class="card-booking">
+  <div class="card-booking-image">
+    <% if lending.vehicle.photo.attached? %>
+      <%= cl_image_tag lending.vehicle.photo.key %>
+    <% else %>
+      <%= image_tag 'default_vehicle.svg', alt: 'Vehicle' %>
+    <% end %>
+    <span class="text-tag">
       <% if lending.accepted %>
-        <span><i class="fa-solid fa-circle-check confirmed"></i>confirmed</span>
+        <i class="fa-solid fa-circle-check big confirmed"></i> confirmed
       <% else %>
-        <span><i class="fa-solid fa-hourglass-start"></i>Approval required</span>
-      <% end%>
+        <i class="fa-solid fa-hourglass-start big error"></i> waiting for confirmation
+      <% end %>
     </span>
   </div>
-  <div class="card-lending__date">
-    <h3>
-      <i class="fa-solid fa-calendar-days"></i>
-      <%= lending.date.strftime("%d/%m/%Y") %>
-    </h3>
-  </div>
-  <div class="card-lending__admin">
-    <% if lending.accepted %>
-      <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button secundary" do %>
-        <i class="fa-regular fa-circle-xmark"></i> Cancel
+  <div class="card-booking-infos">
+    <h3><%= lending.vehicle.name %></h3>
+    <div class="infos-details">
+      <div class="date-price">
+        <div>
+          <i class="fa-solid fa-calendar-days"></i>
+          <span><%= lending.date.strftime("%d/%m/%Y") %></span>
+        </div>
+        <div>
+          <i class="fa-solid fa-euro-sign"></i>
+          <span><%= lending.vehicle.price %></span>
+        </div>
+      </div>
+      <div>
+        <% if lending.user.avatar.attached? %>
+          <%= cl_image_tag lending.user.avatar.key, class: "avatar" %>
+        <% else %>
+          <%= image_tag "default_user.svg", class: "avatar" %>
+        <% end %>
+        <span><%= lending.user.first_name %> <%= lending.user.last_name %></span>
+      </div>
+    </div>
+    <div class="infos-buttons">
+      <% if lending.accepted %>
+        <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "simple-link coffee" do %>
+          <i class="fa-regular fa-circle-xmark"></i> Cancel
+        <% end %>
+      <% else %>
+        <%= link_to approve_path(lending), data: {turbo_method: :patch}, class: "button primary" do %>
+          <i class="fa-regular fa-circle-check"></i> Accept
+        <% end %>
+        <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button secundary" do %>
+          <i class="fa-regular fa-circle-xmark"></i> Decline
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to approve_path(lending), data: {turbo_method: :patch}, class: "button primary" do %>
-        <i class="fa-regular fa-circle-check"></i> Accept
-      <% end %>
-      <%= link_to booking_path(lending), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button secundary" do %>
-        <i class="fa-regular fa-circle-xmark"></i> Decline
-      <% end %>
-    <% end %>
   </div>
 </div>

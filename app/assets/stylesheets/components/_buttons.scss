@@ -42,6 +42,13 @@
   color: $emerald;
   transition: all .15s ease;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &.coffee {
+    color: $coffee;
+  }
 
   &:hover {
     color: $flame;
