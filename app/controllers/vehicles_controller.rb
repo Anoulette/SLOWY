@@ -3,7 +3,12 @@ class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
-    @vehicles = Vehicle.all
+    if params[:query].present?
+      @vehicles = Vehicle.where("vehicle_type ILIKE ?", "%#{params[:query]}%")
+      @notice = "No records found based on the search. Choose a vehicle better for the planet! 🌍 " 
+    else
+      @vehicles = Vehicle.all
+    end
     @markers = @vehicles.geocoded.map do |vehicle|
       {
         lat: vehicle.latitude,

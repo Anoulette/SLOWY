@@ -5,6 +5,21 @@
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV["MAPBOX_API_KEY"] %>"></div>
+
+    <%= form_with url: vehicles_path, method: :get, class: "d-flex mb-4" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control form-inputs form-log",
+        placeholder: "Search by vehicle type"%>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+   <% end %>
+
+   <% if @vehicles.blank? %>
+    <div>
+      <p><%= @notice %></p>
+    </div>
+   <% end %>
+
     <ul class="grid">
     <% @vehicles.each do |vehicle| %>
       <li class="grid__item one-third small-one-whole">
