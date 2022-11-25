@@ -1,6 +1,22 @@
 User.destroy_all
 Vehicle.destroy_all
 
+data = YAML.load_file('seed.yml').deep_symbolize_keys()
+
+
+data[:users].each do |user_data|
+  User.create!(user_data)
+end
+
+data[:vehicles].each do |vehicle_data|
+  vehicle_data[:user_id] = User.find_by(email: vehicle_data[:user_id]).id
+  photo_file = vehicle_data.delete(:photo_file)
+  v = Vehicle.create!(vehicle_data)
+  v.photo.attach(io: File.open("seed_images/#{photo_file}"), filename: photo_file)
+
+end
+
+
 
 # u1 = User.create!(first_name: "Gaëlle", last_name: "Ozanon", email: "gaelle@toto.com", password: "123456")
 # u2 = User.create!(first_name: "Anoula", last_name: "Croville", email: "anoula@toto.com", password: "123456")
