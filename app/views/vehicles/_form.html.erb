@@ -1,12 +1,16 @@
 <%= simple_form_for(@vehicle) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :vehicle_type, collection: [['Bike','bike'],['E-bike','e-bike'],['Cargo bike','cargo bike'],['Overboard','overboard'],['Scooter','scooter'],['E-scooter','e-scooter'],['E-unicycle','e-unicycle']], prompt: "Select your vehicle" %>
-  <%= f.input :details %>
-  <%= f.input :price %>
-  <%= f.input :street_number %>
-  <%= f.input :street %>
-  <%= f.input :zipcode %>
-  <%= f.input :city %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, class: "button primary" %>
+  <div class="form-inputs form-log">
+    <%= f.input :name %>
+    <%= f.input :vehicle_type, collection: [['Bike','bike'],['E-bike','e-bike'],['Cargo bike','cargo bike'],['Overboard','overboard'],['Scooter','scooter'],['E-scooter','e-scooter'],['E-unicycle','e-unicycle']], prompt: "Select your vehicle" %>
+    <%= f.input :details %>
+    <%= f.input :price %>
+    <%= f.input :street_number %>
+    <%= f.input :street %>
+    <%= f.input :zipcode %>
+    <%= f.input :city %>
+    <%= f.input :photo, as: :file %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: "button primary" %>
+  </div>
 <% end %>
