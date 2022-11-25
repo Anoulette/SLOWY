@@ -1,16 +1,25 @@
 <section class="dashboard">
   <div class="dashboard__hero">
     <div class="container">
-      <% if current_user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key, class: "card-vehicle-user avatar" %>
-      <% else %>
-        <%= image_tag "default_user.svg", class:"card-vehicle-user avatar" %>
-      <% end %>
       <h1>My dashboard</h1>
     </div>      
   </div>
   <div class="container">
-    <div class="dashboard__content">      
+    <div class="dashboard__content">
+      <div class="dashboard__user">        
+        <% if current_user.avatar.attached? %>
+          <%= cl_image_tag current_user.avatar.key, class: "card-vehicle-user avatar" %>
+        <% else %>
+          <%= image_tag "default_user.svg", class:"card-vehicle-user avatar" %>
+        <% end %>
+        <span>
+          <%= current_user.first_name %>
+          <%= current_user.last_name %>
+        </span>
+        <%= link_to edit_user_registration_path, class: "simple-link" do %>
+          <i class="fa-solid fa-pen-to-square"></i> Edit my account
+        <% end %>
+      </div>    
       <% if current_user.bookings.count > 0 %>
         <div class="dashboard__borrow dashboard__section">
           <div id="my-bookings">
