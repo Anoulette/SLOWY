@@ -61,5 +61,41 @@
     width: 100%;
     box-shadow: $card-shadow;
     border-radius: $border-radius;
+
+    .mapboxgl-popup-content {
+      border-radius: 16px;
+      padding: 8px;
+      text-align: center;
+
+      img {
+        width: 128px;
+        height: 96px;
+        border-radius: 4px;
+      }
+      
+      button {
+        background-color: $red;
+        color: white;
+        border-top-right-radius: 16px;
+        border-bottom-left-radius: 8px;
+        width: 24px;
+        height: 24px;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 4px;
+      }
+
+      p {
+        margin: 0 0 4px 0;
+      }
+
+      .button {
+        min-height: 32px;
+      }
+    }
   }
 }
