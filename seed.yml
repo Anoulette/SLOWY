@@ -92,3 +92,25 @@ vehicles:
     available: true
     photo_file: 'E-scooter.jpeg'
     user_id: 'gaelle@gmail.com'
+  - vehicle_type: 'e-bike'
+    details: "You feel like a biker but you don't have the license"
+    name: 'Vintage e-bike'
+    street: 'rue du Mail'
+    city: 'Lyon'
+    zipcode: '69004'
+    price: '12'
+    street_number: '20'
+    available: true
+    photo_file: 'E-bike2.jpg'
+    user_id: 'anoula@gmail.com'
+  - vehicle_type: 'cargo bike'
+    details: "Rent our beautiful cargo bike"
+    name: 'Cargo bike'
+    street: 'rue des Fantasques'
+    city: 'Lyon'
+    zipcode: '69001'
+    price: '18'
+    street_number: '5'
+    available: true
+    photo_file: 'Cargo bike2.jpg'
+    user_id: 'gaelle@gmail.com'
