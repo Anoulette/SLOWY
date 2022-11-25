@@ -1,5 +1,6 @@
 .dashboard {
   padding-bottom: 64px;
+  min-height: 80vh;
 
   .dashboard__hero {
     background-color: $crayola;
@@ -25,6 +26,12 @@
     }
   }
   .dashboard__content {
+
+    .dashboard__empty {
+      font-size: 24px;
+      text-align: center;
+      padding: 96px 0;
+    }
 
     .dashboard__user {
       .avatar {

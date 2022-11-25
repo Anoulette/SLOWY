@@ -19,7 +19,13 @@
         <%= link_to edit_user_registration_path, class: "simple-link" do %>
           <i class="fa-solid fa-pen-to-square"></i> Edit my account
         <% end %>
-      </div>    
+      </div>
+      <% if @bookings.count == 0 && @vehicles.count == 0 && @lendings.count == 0 %>
+        <div class="dashboard__empty">
+          <div>Nothing to display here!</div>
+          <div>It's time to <%= link_to "add a vehicle", new_vehicle_path %> or <%= link_to "book a vehicle", vehicles_path %>!</div>
+        </div>
+      <% end %>
       <% if current_user.bookings.count > 0 %>
         <div class="dashboard__borrow dashboard__section">
           <div id="my-bookings">
