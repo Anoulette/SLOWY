@@ -5,7 +5,7 @@ class VehiclesController < ApplicationController
   def index
     if params[:query].present?
       @vehicles = Vehicle.where("vehicle_type ILIKE ?", "%#{params[:query]}%")
-      @notice = "No records found based on the search. Choose a vehicle better for the planet! 🌍 " 
+      @notice = "No records found based on the search. Choose a vehicle better for the planet! 🌍"
     else
       @vehicles = Vehicle.all
     end
