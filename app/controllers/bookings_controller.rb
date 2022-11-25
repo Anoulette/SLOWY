@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, except: [:create]
+  skip_before_action :authenticate_user!, except: [:create, :new]
 
   def index
     @bookings = Booking.where(user_id: current_user.id)
